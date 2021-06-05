@@ -2,9 +2,7 @@ import React from 'react'
 
 
 function AddPhoto(props) {
-
-  const { onAddPhoto } = props;
-
+  
   const handleSubmit = (event) => {
     event.preventDefault();
     const imageLink = event.target.link.value;
@@ -15,15 +13,15 @@ function AddPhoto(props) {
       description: description,
     }
     if (description && imageLink) {
-      onAddPhoto(post)
+      props.startAddingPost(post)
+      props.onHistory.push('/')
     }
     
   }
 
   return (
-    <>
-      
-      <h1>Photowall</h1>
+    <>   
+     
       <div className="form">
       <form onSubmit={handleSubmit}>
         
